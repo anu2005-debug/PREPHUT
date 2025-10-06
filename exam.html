@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREPHUT | Online Exam</title>
+  <link rel="stylesheet" href="exam.css">
+</head>
+<body onload="loadQuestions()">
+
+  <header class="exam-header">
+    <div class="exam-title">
+      <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/IIT_Madras_Logo.svg" alt="IIT Logo" class="logo">
+      <h1>PREPHUT Online Exam Portal</h1>
+    </div>
+    <div id="timer" class="timer">Time Left: 30:00</div>
+  </header>
+
+  <main class="exam-layout">
+    <!-- Left Sidebar -->
+    <aside class="left-panel">
+      <h3>Sections</h3>
+      <ul>
+        <li class="active">General Aptitude</li>
+        <li>Algorithms</li>
+        <li>Operating Systems</li>
+        <li>DBMS</li>
+        <li>Computer Networks</li>
+      </ul>
+    </aside>
+
+    <!-- Question Area -->
+    <section class="question-panel">
+      <div id="question-box" class="question-box fade-in">
+        <!-- Dynamic question content -->
+      </div>
+
+      <div class="question-actions">
+        <button class="mark-review" onclick="markForReview()">Mark for Review & Next</button>
+        <button class="clear" onclick="clearResponse()">Clear Response</button>
+        <button class="save-next" onclick="submitAnswer()">Save & Next</button>
+      </div>
+    </section>
+
+    <!-- Right Sidebar -->
+    <aside class="right-panel">
+      <div class="user-info">
+        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User" class="user-avatar">
+        <p><strong>John Smith</strong></p>
+        <p>CY Chemistry</p>
+      </div>
+
+      <div class="question-nav">
+        <h3>Question Palette</h3>
+        <div id="question-buttons" class="question-buttons">
+          <!-- Buttons dynamically generated -->
+        </div>
+      </div>
+
+      <button class="submit-btn" onclick="showResult()">Submit</button>
+    </aside>
+  </main>
+
+  <footer class="exam-footer">
+    <p>© PREPHUT | Online Assessment Portal</p>
+  </footer>
+
+  <script src="exam.js"></script>
+</body>
+</html>
