@@ -154,3 +154,10 @@ body.dark {
 }
 
 /* Dark mode styles omitted here for brevity */
+.logo-img {
+  height: 40px;    /* Adjust this value as needed */
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
