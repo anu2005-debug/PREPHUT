@@ -13,21 +13,33 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER */
-.exam-header {
+/* HEADER */.exam-header {
+  position: relative;
+  width: 100%;
   background: #003366;
   color: white;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-.exam-title {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.left-heading {
+  margin: 0;
 }
+
+.center-heading {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  text-align: center;
+}
+
+.timer {
+  margin-left: auto;
+  font-weight: bold;
+}
+
 
 .logo {
   height: 50px;
@@ -217,3 +229,4 @@ button:hover {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
