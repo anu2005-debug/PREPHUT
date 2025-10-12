@@ -1,7 +1,9 @@
+
 let allQuestions = [];
 let current = 0;
 let score = 0;
 let totalQuestions = 0;
+let userAnswers = {};  
 
 // Load all questions
 async function loadQuestions() {
@@ -48,6 +50,8 @@ function showQuestion() {
 
 // Handle Save & Next
 function submitAnswer() {
+  console.log("✅ Save & Next clicked");  // Debug check
+
   const selected = document.querySelector('input[name="option"]:checked');
   if (!selected) {
     alert("Please select an option before submitting.");
@@ -57,16 +61,31 @@ function submitAnswer() {
   const chosen = selected.value;
   const correct = allQuestions[current].correct_option;
 
-  if (chosen === correct) score += allQuestions[current].marks;
-  else score += allQuestions[current].negative_marks;
+  if (!(current in userAnswers)) {
+    if (chosen === correct) score += allQuestions[current].marks;
+    else score += allQuestions[current].negative_marks;
+  }
+
+  userAnswers[current] = chosen;
+
+  const btn = document.getElementById(`qbtn-${current}`);
+  if (btn) {
+    btn.style.background = "green";
+    btn.style.color = "white";
+  } else {
+    console.log("⚠️ Button not found: qbtn-" + current);
+  }
 
   nextQuestion();
 }
 
+
 function nextQuestion() {
   current++;
-  if (current >= totalQuestions) showResult();
-  else showQuestion();
+  if (current >= totalQuestions) 
+    showResult();
+  else 
+    showQuestion();
 }
 
 // Generate right-side question buttons
@@ -124,11 +143,5 @@ function clearResponse() {
 
 // Result
 function showResult() {
-  document.querySelector(".question-panel").innerHTML = `
-    <div class="question-box">
-      <h3>Exam Completed ✅</h3>
-      <p>Your Final Score: <strong>${score.toFixed(2)}</strong> / ${totalQuestions}</p>
-      <button onclick="window.location.reload()">Retake Exam</button>
-    </div>
-  `;
+  window.location.href = `result.html?score=${score.toFixed(2)}&total=${totalQuestions}`;
 }
