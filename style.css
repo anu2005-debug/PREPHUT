@@ -8,7 +8,7 @@
 }
 
 body {
-  background: #c3ddf5; /* single light blue background */
+  background: #c3ddf5;
   color: #333;
   display: flex;
   flex-direction: column;
@@ -22,18 +22,31 @@ body {
   color: #fff;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between; /* logo left, right section right */
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Right side container for menu + dark mode */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Menu links */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.2rem;
-  transition: all 0.3s ease;
 }
 
 .nav-links a {
@@ -48,116 +61,85 @@ body {
   color: #aad4ff;
 }
 
+/* Dark mode toggle */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Hamburger menu (for mobile) */
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
 }
 
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
     position: absolute;
-    background: #003366;
-    width: 100%;
     top: 60px;
-    left: 0;
-    text-align: center;
+    right: 0;
+    width: 200px;
+    background: #003366;
     display: none;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
   }
+
   .nav-links.show {
     display: flex;
   }
+
   .menu-toggle {
     display: block;
   }
 }
 
-/* === Home Banner === */
-.home-banner {
-  text-align: center;
-  padding: 0; /* Removed padding for centering */
-  background: transparent; /* Removed gradient background */
-  animation: fadeIn 1.2s ease-in-out;
+/* === Result Page Styles === */
 
-  min-height: 80vh; /* Ensures enough height for vertical centering */
+/* Wrapper to center result card */
+.result-wrapper {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Vertically centers content */
-  align-items: center; /* Horizontally centers content */
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #c3ddf5;
 }
 
-.home-banner h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+/* Result card */
+.result-container {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  text-align: center;
+  min-width: 300px;
 }
 
-.home-banner p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #444;
-}
-
-/* === Buttons === */
-.btn {
-  background: #003366;
-  color: #fff;
-  padding: 12px 25px;
+/* Buttons inside result card */
+.result-container .btn {
+  padding: 10px 20px;
+  margin: 0.5rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
+  background: #003366;
+  color: white;
   font-size: 1rem;
-  transition: all 0.3s ease;
 }
 
-.btn:hover {
+.result-container .btn:hover {
   background: #0055aa;
-  transform: translateY(-2px);
 }
 
-.btn-animate {
-  animation: slideUp 1s ease;
-}
-
-/* === Other styles remain unchanged === */
-
-/* === Animations === */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* === Dark Mode === */
+/* Dark Mode Styles */
 body.dark {
   background: #0f172a;
   color: #e2e8f0;
-  transition: background 0.4s ease, color 0.4s ease;
 }
-
-/* Dark mode styles omitted here for brevity */
-.logo-img {
-  height: 40px;    /* Adjust this value as needed */
-  width: auto;
-  margin-right: 10px;
-  vertical-align: middle;
-}
-
