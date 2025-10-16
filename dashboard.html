@@ -4,42 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard | PREPHUT</title>
-  <nav class="navbar">
-  <h2 class="logo">PREPHUT</h2>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="login.html">Student Portal</a></li>
-  </ul>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-</nav>
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body onload="loadDashboard()">
-  <header class="navbar">
-    <h2>PREPHUT</h2>
+  <nav class="navbar dashboard-navbar">
+    <span class="logo">PREPHUT</span>
     <button onclick="logout()" class="logout-btn">Logout</button>
-  </header>
-
-  <main class="dashboard">
-    <section class="profile-card">
-      <h3>My Profile</h3>
-      <p><strong>Name:</strong> <span id="userName"></span></p>
-      <p><strong>Email:</strong> <span id="userEmail"></span></p>
-      <p><strong>Phone:</strong> <span id="userPhone"></span></p>
-    </section>
-
-    <section class="actions">
-      <button class="btn" onclick="window.location.href='exam.html'">Start Exam</button>
-      <button class="btn" onclick="alert('Read instructions carefully before the exam.')">Exam Instructions</button>
-    </section>
-  </main>
-
+  </nav>
+  <div class="main-content">
+    <div class="dashboard-box">
+      <h2 class="main-dashboard-title">My Dashboard</h2>
+      <section class="profile-card">
+        <h3>Profile</h3>
+        <p class="profile-name"><strong>Name:</strong> <span id="userName"></span></p>
+        <p class="profile-email"><strong>Email:</strong> <span id="userEmail"></span></p>
+      </section>
+      <section class="actions">
+        <button class="btn animated-btn start-exam-btn" onclick="window.location.href='exam.html'">
+          <span class="finger">👉</span> Start Exam
+        </button>
+        <button class="btn animated-btn" onclick="alert('Read instructions carefully before the exam.')">
+          Exam Instructions
+        </button>
+      </section>
+    </div>
+  </div>
   <footer>
-    <p>&copy; PREPHUT  Exam Portal | <a href="#">About</a> | <a href="#">Contact Us</a></p>
+    <p>&copy; PREPHUT Exam Portal | <a href="#">About</a> | <a href="#">Contact Us</a></p>
   </footer>
-
   <script src="main.js"></script>
 </body>
 </html>

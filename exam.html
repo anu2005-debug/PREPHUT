@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,22 +8,18 @@
 </head>
 <body onload="loadQuestions()">
 
-<header class="exam-header">
-  <h1 class="left-heading">PREPHUT</h1>
-  <h1 class="center-heading">Online Exam Portal</h1>
-  <div id="timer" class="timer">Time Left: 30:00</div>
-</header>
-
+  <header class="exam-header">
+    <h1 class="left-heading">PREPHUT</h1>
+    <h1 class="center-heading">Online Exam Portal</h1>
+    <div id="timer" class="timer">Time Left: 30:00</div>
+  </header>
 
   <main class="exam-layout">
-   
-
     <!-- Question Area -->
     <section class="question-panel">
       <div id="question-box" class="question-box fade-in">
         <!-- Dynamic question content -->
       </div>
-
       <div class="question-actions">
         <button class="mark-review" onclick="markForReview()">Mark for Review & Next</button>
         <button class="clear" onclick="clearResponse()">Clear Response</button>
@@ -36,15 +31,12 @@
     <aside class="right-panel">
       <div class="user-info">
         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User" class="user-avatar">
-        <p><strong>John Smith</strong></p>
-        <p>CY Chemistry</p>
+        <p><strong id="profileName"></strong></p>
       </div>
 
       <div class="question-nav">
         <h3>Question Palette</h3>
-        <div id="question-buttons" class="question-buttons">
-          <!-- Buttons dynamically generated -->
-        </div>
+        <div id="question-buttons" class="question-buttons"></div>
       </div>
 
       <button class="submit-btn" onclick="showResult()">Submit</button>
@@ -56,8 +48,8 @@
   </footer>
 
   <script src="exam.js"></script>
+  <script>
+    document.getElementById('profileName').textContent = localStorage.getItem('username') || 'Candidate';
+  </script>
 </body>
 </html>
-
-
-

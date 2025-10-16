@@ -1,23 +1,19 @@
-
 let allQuestions = [];
 let current = 0;
 let score = 0;
 let totalQuestions = 0;
-let userAnswers = {};  
+let userAnswers = {};
 
-// Load all questions
 async function loadQuestions() {
   try {
     const res = await fetch("questions.json");
     const data = await res.json();
-
     allQuestions = [
       ...data["Algorithms"],
       ...data["Operating Systems"],
       ...data["DBMS"],
       ...data["Computer Networks"]
     ];
-
     totalQuestions = allQuestions.length;
     generateQuestionButtons();
     showQuestion();
@@ -28,7 +24,6 @@ async function loadQuestions() {
   }
 }
 
-// Display a question
 function showQuestion() {
   const q = allQuestions[current];
   const box = document.getElementById("question-box");
@@ -39,22 +34,24 @@ function showQuestion() {
       ${Object.entries(q.options)
         .map(
           ([key, val]) =>
-            `<label><input type="radio" name="option" value="${key}"> ${key}. ${val}</label>`
+            `<label><input type="radio" name="option" value="${key}"
+            ${userAnswers[current] === key ? 'checked' : ''}> ${key}. ${val}</label>`
         )
         .join("")}
     </div>
   `;
-
   updateActiveButton();
 }
 
-// Handle Save & Next
 function submitAnswer() {
-  console.log("✅ Save & Next clicked");  // Debug check
-
   const selected = document.querySelector('input[name="option"]:checked');
+  const btn = document.getElementById(`qbtn-${current}`);
+
   if (!selected) {
-    alert("Please select an option before submitting.");
+    btn.classList.remove('answered');
+    btn.classList.add('unanswered');
+    userAnswers[current] = null;
+    nextQuestion();
     return;
   }
 
@@ -67,18 +64,10 @@ function submitAnswer() {
   }
 
   userAnswers[current] = chosen;
-
-  const btn = document.getElementById(`qbtn-${current}`);
-  if (btn) {
-    btn.style.background = "green";
-    btn.style.color = "white";
-  } else {
-    console.log("⚠️ Button not found: qbtn-" + current);
-  }
-
+  btn.classList.remove('unanswered');
+  btn.classList.add('answered');
   nextQuestion();
 }
-
 
 function nextQuestion() {
   current++;
@@ -88,7 +77,6 @@ function nextQuestion() {
     showQuestion();
 }
 
-// Generate right-side question buttons
 function generateQuestionButtons() {
   const container = document.getElementById("question-buttons");
   container.innerHTML = allQuestions
@@ -106,22 +94,30 @@ function goToQuestion(i) {
 function updateActiveButton() {
   document
     .querySelectorAll("#question-buttons button")
-    .forEach((b) => b.classList.remove("active"));
-  document.getElementById(`qbtn-${current}`).classList.add("active");
+    .forEach((b, i) => {
+      b.classList.remove("active");
+      if (i === current) b.classList.add("active");
+
+      if (userAnswers[i] === null) {
+        b.classList.add('unanswered');
+        b.classList.remove('answered');
+      } else if (userAnswers[i]) {
+        b.classList.add('answered');
+        b.classList.remove('unanswered');
+      } else {
+        b.classList.remove('answered');
+        b.classList.remove('unanswered');
+      }
+    });
 }
 
-// Timer
 function startTimer(duration) {
   let time = duration;
   const timerDisplay = document.getElementById("timer");
-
   const interval = setInterval(() => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    timerDisplay.textContent = `Time Left: ${minutes}:${
-      seconds < 10 ? "0" + seconds : seconds
-    }`;
-
+    timerDisplay.textContent = `Time Left: ${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
     if (--time < 0) {
       clearInterval(interval);
       alert("Time's up! Submitting your answers...");
@@ -130,18 +126,22 @@ function startTimer(duration) {
   }, 1000);
 }
 
-// Mark for review & clear response (UI only)
 function markForReview() {
-  document.getElementById(`qbtn-${current}`).style.background = "#f0ad4e";
+  const btn = document.getElementById(`qbtn-${current}`);
+  btn.style.background = "#f0ad4e";
+  btn.style.color = "white";
   nextQuestion();
 }
 
 function clearResponse() {
   const checked = document.querySelector('input[name="option"]:checked');
   if (checked) checked.checked = false;
+  delete userAnswers[current];
+  const btn = document.getElementById(`qbtn-${current}`);
+  btn.classList.add('unanswered');
+  btn.classList.remove('answered');
 }
 
-// Result
 function showResult() {
   window.location.href = `result.html?score=${score.toFixed(2)}&total=${totalQuestions}`;
 }
