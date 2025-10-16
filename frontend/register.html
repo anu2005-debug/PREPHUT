@@ -1,0 +1,81 @@
+<<<<<<< HEAD:register.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Registration | PREPHUT</title>
+  <link rel="stylesheet" href="register.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h2 class="logo">PREPHUT</h2>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="login.html">Student Portal</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </nav>
+  <div class="main-content">
+    <div class="form-container">
+      <h2>Student Registration</h2>
+      <form id="registrationForm">
+        <input type="text" id="name" name="name" placeholder="Full Name" required />
+        <input type="email" id="email" name="email" placeholder="Email" required />
+        <input type="password" id="password" name="password" placeholder="Password" required />
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" />
+        <button class="btn" type="submit">Register</button>
+      </form>
+      <div class="form-link">
+        Already Registered? <a href="login.html">Login here</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Get input values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const phone = document.getElementById('phone').value.trim();
+
+      // Save to localStorage
+      localStorage.setItem('user_name', name);
+      localStorage.setItem('user_email', email);
+      localStorage.setItem('user_password', password); // Not secure! For demo only.
+      localStorage.setItem('user_phone', phone);
+
+      // Redirect to login
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | PREPHUT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Student Registration</h2>
+    <form onsubmit="return registerUser(event)">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button type="submit" class="btn">Register</button>
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+    </form>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+>>>>>>> 09e6c8c863504fb4821d5b286edb012dbd1e2484:frontend/register.html

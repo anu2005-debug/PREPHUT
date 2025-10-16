@@ -1,0 +1,93 @@
+const User = require('../models/User');
+const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
+
+// ==================== REGISTER ====================
+exports.registerUser = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    const existingUser = await User.findOne({ email });
+    if (existingUser) return res.status(400).json({ message: "User already exists" });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ name, email, password: hashedPassword });
+    await newUser.save();
+
+    res.status(201).json({ message: "User registered successfully!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error during registration" });
+  }
+};
+
+// ==================== LOGIN ====================
+exports.loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ message: "User not found" });
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ message: "Invalid password" });
+
+    // Return name and email for dashboard
+    res.status(200).json({
+      message: "Login successful!",
+      name: user.name,
+      email: user.email
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error during login" });
+  }
+};
+// ==================== FORGOT PASSWORD ====================
+exports.forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) return res.status(400).json({ message: "Email is required" });
+
+    const user = await User.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    const resetToken = crypto.randomBytes(20).toString('hex');
+    user.resetToken = resetToken;
+    user.resetTokenExpire = Date.now() + 3600000; // valid for 1 hour
+    await user.save();
+
+    res.status(200).json({
+      message: "Password reset token generated successfully!",
+      resetToken
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error during password reset request" });
+  }
+};
+
+// ==================== RESET PASSWORD ====================
+exports.resetPassword = async (req, res) => {
+  try {
+    const { token, newPassword } = req.body;
+    if (!token || !newPassword) {
+      return res.status(400).json({ message: "Token and new password are required" });
+    }
+
+    const user = await User.findOne({ 
+      resetToken: token, 
+      resetTokenExpire: { $gt: Date.now() } 
+    });
+    if (!user) return res.status(400).json({ message: "Invalid or expired token" });
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    user.password = hashedPassword;
+    user.resetToken = undefined;
+    user.resetTokenExpire = undefined;
+    await user.save();
+
+    res.status(200).json({ message: "Password reset successfully!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error during password reset" });
+  }
+};

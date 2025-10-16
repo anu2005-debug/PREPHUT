@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Result | GATE 2026</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h2 class="logo">GATE 2026</h2>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="login.html">Student Portal</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </nav>
+
+  <div class="result-container">
+    <h2>Exam Result</h2>
+    <p>Your Score: <span id="score"></span></p>
+    <button class="btn" onclick="reviewAnswers()">Review Answers</button>
+    <button class="btn" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+  </div>
+
+  <script>
+    // Read score from URL query parameters
+    const params = new URLSearchParams(window.location.search);
+    const score = params.get('score') || 0;
+    const total = params.get('total') || 0;
+
+    document.getElementById('score').textContent = `${score} / ${total}`;
+
+    function reviewAnswers() {
+      // Redirect to exam page or show answers
+      window.location.href = 'exam.html';
+    }
+  </script>
+</body>
+</html>
