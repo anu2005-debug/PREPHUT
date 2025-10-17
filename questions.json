@@ -1,0 +1,530 @@
+{
+  "Algorithms": [
+    {
+      "q_id": 1,
+      "question_text": "What is the worst-case time complexity of Quick Sort?",
+      "options": {
+        "A": "O(n log n)",
+        "B": "O(n^2)",
+        "C": "O(n)",
+        "D": "O(log n)"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 2,
+      "question_text": "Which data structure is used to implement recursion?",
+      "options": {
+        "A": "Queue",
+        "B": "Stack",
+        "C": "Linked List",
+        "D": "Heap"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 3,
+      "question_text": "Dijkstra's algorithm is used to find ______.",
+      "options": {
+        "A": "Minimum Spanning Tree",
+        "B": "Shortest Path",
+        "C": "Topological Order",
+        "D": "Eulerian Path"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 4,
+      "question_text": "What is the space complexity of Merge Sort?",
+      "options": {
+        "A": "O(1)",
+        "B": "O(n)",
+        "C": "O(log n)",
+        "D": "O(n log n)"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 5,
+      "question_text": "Which of the following algorithms uses divide and conquer technique?",
+      "options": {
+        "A": "Insertion Sort",
+        "B": "Heap Sort",
+        "C": "Merge Sort",
+        "D": "Bubble Sort"
+      },
+      "correct_option": "C",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 6,
+      "question_text": "What is the best-case time complexity of Binary Search?",
+      "options": {
+        "A": "O(1)",
+        "B": "O(log n)",
+        "C": "O(n)",
+        "D": "O(n log n)"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 7,
+      "question_text": "Which algorithm is used to detect cycles in a graph?",
+      "options": {
+        "A": "Kruskal's Algorithm",
+        "B": "DFS",
+        "C": "Dijkstra's Algorithm",
+        "D": "Prim's Algorithm"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 8,
+      "question_text": "In a min-heap, the smallest element is located at ______.",
+      "options": {
+        "A": "Root",
+        "B": "Leaf",
+        "C": "Middle",
+        "D": "Rightmost Node"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 9,
+      "question_text": "Topological sorting is applicable to ______.",
+      "options": {
+        "A": "Cyclic Graphs",
+        "B": "Directed Acyclic Graphs",
+        "C": "Undirected Graphs",
+        "D": "All Graphs"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 10,
+      "question_text": "Which of the following is not a stable sorting algorithm?",
+      "options": {
+        "A": "Bubble Sort",
+        "B": "Merge Sort",
+        "C": "Quick Sort",
+        "D": "Insertion Sort"
+      },
+      "correct_option": "C",
+      "marks": 1,
+      "negative_marks": -0.33
+    }
+  ],
+  "Operating Systems": [
+    {
+      "q_id": 11,
+      "question_text": "Which scheduling algorithm may cause starvation?",
+      "options": {
+        "A": "Round Robin",
+        "B": "First Come First Serve",
+        "C": "Shortest Job Next",
+        "D": "Priority Scheduling"
+      },
+      "correct_option": "D",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 12,
+      "question_text": "In which condition is a process said to be in a 'blocked' state?",
+      "options": {
+        "A": "Waiting for CPU",
+        "B": "Waiting for I/O",
+        "C": "Ready to execute",
+        "D": "Terminated"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 13,
+      "question_text": "Which of the following is a preemptive scheduling algorithm?",
+      "options": {
+        "A": "FCFS",
+        "B": "Round Robin",
+        "C": "SJF Non-preemptive",
+        "D": "None of the above"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 14,
+      "question_text": "Virtual memory uses ______ to extend the apparent memory of a process.",
+      "options": {
+        "A": "Registers",
+        "B": "Disk",
+        "C": "Cache",
+        "D": "RAM only"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 15,
+      "question_text": "Which of the following is NOT a type of OS?",
+      "options": {
+        "A": "Batch OS",
+        "B": "Time-Sharing OS",
+        "C": "Distributed OS",
+        "D": "Structured OS"
+      },
+      "correct_option": "D",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 16,
+      "question_text": "Deadlock occurs when ______.",
+      "options": {
+        "A": "Processes wait indefinitely for resources",
+        "B": "CPU is idle",
+        "C": "Memory is full",
+        "D": "Process terminates normally"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 17,
+      "question_text": "Which of the following is a page replacement algorithm?",
+      "options": {
+        "A": "FCFS",
+        "B": "LRU",
+        "C": "SJF",
+        "D": "RR"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 18,
+      "question_text": "Semaphore is used to solve ______ problem.",
+      "options": {
+        "A": "Memory Allocation",
+        "B": "CPU Scheduling",
+        "C": "Critical Section",
+        "D": "File System Management"
+      },
+      "correct_option": "C",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 19,
+      "question_text": "Which of the following is a non-preemptive scheduling algorithm?",
+      "options": {
+        "A": "Priority Preemptive",
+        "B": "SJF Preemptive",
+        "C": "FCFS",
+        "D": "Round Robin"
+      },
+      "correct_option": "C",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 20,
+      "question_text": "Thrashing occurs due to ______.",
+      "options": {
+        "A": "High CPU utilization",
+        "B": "Low memory",
+        "C": "Disk full",
+        "D": "Deadlock"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    }
+  ],
+  "DBMS": [
+    {
+      "q_id": 21,
+      "question_text": "Which normal form removes transitive dependency?",
+      "options": {
+        "A": "1NF",
+        "B": "2NF",
+        "C": "3NF",
+        "D": "BCNF"
+      },
+      "correct_option": "C",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 22,
+      "question_text": "In relational algebra, which operation corresponds to SELECT in SQL?",
+      "options": {
+        "A": "Projection",
+        "B": "Selection",
+        "C": "Union",
+        "D": "Join"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 23,
+      "question_text": "Which of the following is a key used to uniquely identify tuples?",
+      "options": {
+        "A": "Foreign Key",
+        "B": "Primary Key",
+        "C": "Candidate Key",
+        "D": "Super Key"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 24,
+      "question_text": "Which SQL command is used to remove a table from the database?",
+      "options": {
+        "A": "DELETE",
+        "B": "DROP",
+        "C": "TRUNCATE",
+        "D": "REMOVE"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 25,
+      "question_text": "A relation schema is in BCNF if ______.",
+      "options": {
+        "A": "Every determinant is a candidate key",
+        "B": "No transitive dependency",
+        "C": "No partial dependency",
+        "D": "All attributes are atomic"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 26,
+      "question_text": "Which of the following is a DML command?",
+      "options": {
+        "A": "CREATE",
+        "B": "DROP",
+        "C": "INSERT",
+        "D": "ALTER"
+      },
+      "correct_option": "C",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 27,
+      "question_text": "Foreign key is used to ______.",
+      "options": {
+        "A": "Enforce referential integrity",
+        "B": "Enforce uniqueness",
+        "C": "Identify primary tuples",
+        "D": "None of these"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 28,
+      "question_text": "Which join returns all tuples from both relations?",
+      "options": {
+        "A": "Inner Join",
+        "B": "Left Join",
+        "C": "Right Join",
+        "D": "Full Outer Join"
+      },
+      "correct_option": "D",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 29,
+      "question_text": "Which of the following is a set operation in relational algebra?",
+      "options": {
+        "A": "Union",
+        "B": "Projection",
+        "C": "Selection",
+        "D": "Cartesian Product"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 30,
+      "question_text": "A relation is in 2NF if ______.",
+      "options": {
+        "A": "No partial dependency",
+        "B": "No transitive dependency",
+        "C": "All attributes are atomic",
+        "D": "Every determinant is a candidate key"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    }
+  ],
+  "Computer Networks": [
+    {
+      "q_id": 31,
+      "question_text": "Which protocol is used to securely transfer files over the Internet?",
+      "options": {
+        "A": "FTP",
+        "B": "SFTP",
+        "C": "HTTP",
+        "D": "SMTP"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 32,
+      "question_text": "The main function of the transport layer is ______.",
+      "options": {
+        "A": "Routing",
+        "B": "Error detection",
+        "C": "End-to-end communication",
+        "D": "Addressing"
+      },
+      "correct_option": "C",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 33,
+      "question_text": "Which of the following is a connectionless protocol?",
+      "options": {
+        "A": "TCP",
+        "B": "UDP",
+        "C": "HTTP",
+        "D": "FTP"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 34,
+      "question_text": "IP address uniquely identifies a ______.",
+      "options": {
+        "A": "Host",
+        "B": "Network",
+        "C": "Subnet",
+        "D": "Router"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 35,
+      "question_text": "Which layer is responsible for packet switching?",
+      "options": {
+        "A": "Data Link Layer",
+        "B": "Network Layer",
+        "C": "Transport Layer",
+        "D": "Application Layer"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 36,
+      "question_text": "Which protocol is used to map IP addresses to MAC addresses?",
+      "options": {
+        "A": "DNS",
+        "B": "ARP",
+        "C": "ICMP",
+        "D": "DHCP"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 37,
+      "question_text": "Which of the following is a wireless network technology?",
+      "options": {
+        "A": "Ethernet",
+        "B": "Wi-Fi",
+        "C": "Token Ring",
+        "D": "FDDI"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 38,
+      "question_text": "The protocol HTTP works at which layer of the OSI model?",
+      "options": {
+        "A": "Application Layer",
+        "B": "Transport Layer",
+        "C": "Network Layer",
+        "D": "Session Layer"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 39,
+      "question_text": "Which of the following is a valid private IP address?",
+      "options": {
+        "A": "8.8.8.8",
+        "B": "192.168.1.1",
+        "C": "172.34.5.2",
+        "D": "209.85.231.104"
+      },
+      "correct_option": "B",
+      "marks": 1,
+      "negative_marks": -0.33
+    },
+    {
+      "q_id": 40,
+      "question_text": "The main function of DNS is to ______.",
+      "options": {
+        "A": "Translate domain names to IP addresses",
+        "B": "Provide encryption",
+        "C": "Route packets",
+        "D": "Check packet integrity"
+      },
+      "correct_option": "A",
+      "marks": 1,
+      "negative_marks": -0.33
+    }
+  ]
+}

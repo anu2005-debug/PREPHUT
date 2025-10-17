@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PREPHUT | Exam Result</title>
+  <link rel="stylesheet" href="result.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <span class="logo-title">PREPHUT</span>
+    <span class="nav-center">
+      <a href="dashboard.html" class="nav-link">Home</a>
+      <a href="portal.html" class="nav-link">Student Portal</a>
+    </span>
+    <span class="nav-right">
+      <span class="moon-icon" onclick="toggleTheme()">&#x1F319;</span>
+    </span>
+  </nav>
+
+  <div id="resultBanner" class="result-banner">
+    You scored <span id="score"></span> 🎉
+  </div>
+
+  <div class="result-card">
+    <div class="result-title">Exam <span class="highlighted">Result</span></div>
+    <div>Your Score:<br>
+      <span class="result-score" id="scoreBig"></span>
+    </div>
+    <button class="thanks-btn" disabled>Thanks for attempting the test!</button>
+    <button class="primary-btn" onclick="retakeExam()">🔁 Retake Exam</button>
+    <button class="secondary-btn" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+  </div>
+
+  <div class="footer-box">
+    Thank you for taking the exam!
+    <br>We appreciate your effort and time.
+  </div>
+
+  <script>
+    // Parse score from URL params
+    const params = new URLSearchParams(window.location.search);
+    const scoreVal = params.get("score") || 0;
+    const totalVal = params.get("total") || 0;
+    document.getElementById("score").innerText = `${scoreVal} / ${totalVal}`;
+    document.getElementById("scoreBig").innerText = `${scoreVal} / ${totalVal}`;
+
+    function retakeExam() {
+      window.location.href = "exam.html";
+    }
+
+    // Dummy theme toggle (replace with your JS if needed)
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
+</html>

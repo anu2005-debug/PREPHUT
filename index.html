@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PREPHUT | Modern Online Exam Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img src="images/Prep_LOGO.png" alt="PrepHut Logo" class="logo-img" />
+        <h2 class="logo">PREPHUT</h2>
+      </div>
+      <div class="navbar-right">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="login.html">Student Portal</a></li>
+        </ul>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">🌙</button>
+        <div class="menu-toggle" onclick="toggleMenu()" aria-label="Open Menu">☰</div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero-container fade-in">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">Modern Online Exam Portal</h1>
+        <p class="hero-desc">
+          Easy to get started and intuitive to use.<br />
+          PREPHUT equips you with all the power and functionality you need to create secure exams for your students, your way.<br />
+          Conduct secure, efficient, and user-friendly online examinations with our comprehensive exam management system.
+        </p>
+        <a href="register.html" class="btn hero-btn">Get Started</a>
+      </div>
+      <div class="hero-img">
+        <img src="images/PHOTO_1.png" alt="Student Exam Illustration" />
+      </div>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <h2>Why Choose Our Exam Portal?</h2>
+    <p>
+      Built with modern technology to provide a seamless examination experience for both students and educators.<br />
+      We simplify all the moving pieces so you can administer your exams securely and with confidence without technical complexity.
+    </p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><img src="images/PDF.png" alt="PDF Icon" /></div>
+        <div class="feature-title">Create an exam in minutes</div>
+        <div class="feature-desc">Upload an existing exam as PDF</div>
+        <a href="#">Learn more &rarr;</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><img src="images/LOCKDOWN_MODE.png" alt="Lockdown Mode" /></div>
+        <div class="feature-title">Prevent cheating</div>
+        <div class="feature-desc">With our secure browser lockdown mode</div>
+        <a href="#">Learn more &rarr;</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><img src="images/USER_LOGIN.png" alt="Multi-User Icon" /></div>
+        <div class="feature-title">Multi-User Support</div>
+        <div class="feature-desc">For students, teachers, and administrators</div>
+        <a href="#">Learn more &rarr;</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><img src="images/LMS.png" alt="LMS Icon" /></div>
+        <div class="feature-title">Collect exams your way</div>
+        <div class="feature-desc">Stand-alone, integrated with LMS, or offline</div>
+        <a href="#">Learn more &rarr;</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><img src="images/ANALYTICS.png" alt="Analytics Icon" /></div>
+        <div class="feature-title">Result Analytics</div>
+        <div class="feature-desc">Detailed performance analytics and reporting</div>
+        <a href="#">Learn more &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="modern-footer">
+    <div class="footer-nav">
+      <a href="#">ABOUT US</a>
+      <a href="#">FEATURES</a>
+      <a href="#">RESOURCES</a>
+    </div>
+    <div class="footer-center-logo">
+      <img src="images/Prep_LOGO.png" alt="PrepHut Logo" />
+    </div>
+    <div class="footer-social">
+      <a href="#"><img src="images/facebook.png" alt="Facebook" class="social-icon" /></a>
+      <a href="#"><img src="images/twitter.png" alt="Twitter" class="social-icon" /></a>
+      <a href="#"><img src="images/instagram.png" alt="Instagram" class="social-icon" /></a>
+      <a href="#"><img src="images/youtube.png" alt="YouTube" class="social-icon" /></a>
+    </div>
+    <hr class="footer-line" />
+    <div class="footer-bottom">
+      <span>© 2025 PREPHUT. All rights reserved</span>
+      <span>
+        <a href="#">Terms Of Use</a> |
+        <a href="#">Privacy Policy</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
