@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | PREPHUT</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body onload="loadDashboard()">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="images/Prep_LOGO.png" alt="PrepHut Logo" class="logo-img" />
+      <h2 class="logo">PREPHUT</h2>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="login.html">Student Portal</a></li>
+    </ul>
+    <div class="navbar-right">
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+      <button class="btn logout-nav-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Main Dashboard Content -->
+  <main class="dashboard">
+    <section class="profile-card">
+      <h3>My Profile</h3>
+      <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
+      <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+    </section>
+    <section class="actions">
+      <button class="btn start-exam" onclick="window.location.href='exam.html'">Start Exam</button>
+      <button class="btn instructions-btn">Exam Instructions</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; PREPHUT Exam Portal | <a href="#">About</a> | <a href="#">Contact Us</a></p>
+  </footer>
+
+  <!-- Exam Instructions Popup -->
+  <div id="instructionsPopup" class="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="instructionsTitle">
+    <div class="popup-content">
+      <h2 id="instructionsTitle">Exam Instructions</h2>
+      <ul>
+        <li>Read each question carefully before answering.</li>
+        <li>Do not refresh the page during the exam.</li>
+        <li>Time limits are strict; manage your time well.</li>
+        <li>Each question may carry different marks.</li>
+        <li>No negative marking for unattempted questions.</li>
+        <li>Do not use external help.</li>
+        <li>Submit your answers before the time runs out.</li>
+        <li>Check your answers before submission.</li>
+        <li>Contact support immediately for any issues.</li>
+        <li>Stay calm and focused throughout the exam.</li>
+      </ul>
+      <button id="closePopupBtn" class="btn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Fetch user info and load profile on dashboard
+    function loadDashboard() {
+      const userStr = localStorage.getItem("user");
+      const loggedIn = localStorage.getItem("loggedIn");
+      if (!loggedIn || !userStr) {
+        window.location.href = "login.html";
+        return;
+      }
+      const user = JSON.parse(userStr);
+      document.getElementById("userName").textContent = user.name || "N/A";
+      document.getElementById("userEmail").textContent = user.email || "N/A";
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+
+    function toggleTheme() {
+      const body = document.body;
+      const isDark = body.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      document.querySelector(".theme-toggle").textContent = isDark ? "☀️" : "🌙";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Load saved theme
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        const toggle = document.querySelector(".theme-toggle");
+        if (toggle) toggle.textContent = "☀️";
+      }
+      // Event listeners for instruction button popup
+      const instructionsBtn = document.querySelector(".instructions-btn");
+      const popup = document.getElementById("instructionsPopup");
+      const closeBtn = document.getElementById("closePopupBtn");
+
+      if (instructionsBtn && popup && closeBtn) {
+        instructionsBtn.addEventListener("click", () => {
+          popup.classList.add("active");
+        });
+        closeBtn.addEventListener("click", () => {
+          popup.classList.remove("active");
+        });
+      }
+    });
+  </script>
+</body>
+</html>
